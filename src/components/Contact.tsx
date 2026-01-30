@@ -1,10 +1,13 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
+import Title from './Title';
 
 export default function Contact() {
   return (
     <div id="contact" className="py-24 bg-neutral text-neutral-content">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16 uppercase">Contacto</h2>
+        <div className="text-center mb-16 uppercase">
+          <Title text="Contacto" />
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Info */}
@@ -38,12 +41,12 @@ export default function Contact() {
             </div>
 
             <div className="flex items-center space-x-4">
-               <div className="bg-primary/20 p-3 rounded-full text-primary">
+              <div className="bg-primary/20 p-3 rounded-full text-primary">
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
-                 <p className="text-sm opacity-60">Ubicación</p>
-                 <p className="font-semibold">Guatemala</p>
+                <p className="text-sm opacity-60">Ubicación</p>
+                <p className="font-semibold">Guatemala</p>
               </div>
             </div>
 

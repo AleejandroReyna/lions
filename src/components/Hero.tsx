@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Title from './Title';
 
 export default function Hero() {
   return (
@@ -14,10 +15,10 @@ export default function Hero() {
       </div>
 
       <div className="hero-content text-center text-neutral-content relative z-10">
-        <div className="max-w-3xl">
-          <h1 className="mb-5 text-5xl font-bold leading-tight">
-            Creamos estrategias que capturan la esencia de tu marca
-          </h1>
+        <div className="max-w-4xl">
+          <div className="mb-5">
+            <Title text="Creamos estrategias que capturan la esencia de tu marca" />
+          </div>
           <p className="mb-2 text-xl font-light">
             Creatividad y precisión, cuidando cada detalle.
           </p>

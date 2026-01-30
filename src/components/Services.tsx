@@ -1,4 +1,5 @@
 import { Share2, Shirt, Monitor, Printer, CreditCard, PenTool, Video } from 'lucide-react';
+import Title from './Title';
 
 const services = [
   {
@@ -42,7 +43,9 @@ export default function Services() {
   return (
     <div id="services" className="bg-base-200 py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16 uppercase">Nuestros Servicios</h2>
+        <div className="text-center mb-16 uppercase">
+          <Title text="Nuestros Servicios" />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <div key={index} className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">

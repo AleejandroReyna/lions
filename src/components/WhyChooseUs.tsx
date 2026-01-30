@@ -1,4 +1,5 @@
 import { CheckCircle, TrendingUp, Lightbulb, Handshake } from 'lucide-react';
+import Title from './Title';
 
 const features = [
   {
@@ -26,10 +27,10 @@ const features = [
 export default function WhyChooseUs() {
   return (
     <div className="py-24 bg-base-100">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16 uppercase">
-          ¿Porque Elegir A <span className="text-primary">LIONS</span>?
-        </h2>
+      <div className="container mx-auto px-4 text-center">
+        <div className="mb-16 uppercase">
+          <Title text="¿Porque Elegir A LIONS?" />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="flex flex-col items-center text-center p-6 border border-base-200 rounded-xl hover:bg-base-200 transition-colors">

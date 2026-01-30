@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import Title from './Title';
 
 export default function Portfolio() {
   const images = Array.from({ length: 8 }, (_, i) => i + 1);
@@ -9,8 +10,10 @@ export default function Portfolio() {
     <div id="promotionals" className="py-24 bg-base-100 overflow-hidden">
       <div className="container mx-auto px-4 mb-12 flex justify-between items-end">
         <div>
-           <h2 className="text-4xl font-bold uppercase mb-2">Promocionales</h2>
-           <p className="text-xl text-primary font-light">con impacto</p>
+          <div className="uppercase mb-2">
+            <Title text="Promocionales" />
+          </div>
+          <p className="text-xl text-primary font-light">con impacto</p>
         </div>
         <Link href="/catalogo" className="btn btn-outline btn-primary hidden md:flex">
           Catálogo <ArrowRight className="w-4 h-4 ml-2" />
@@ -28,7 +31,7 @@ export default function Portfolio() {
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                 <span className="text-white font-bold">Ver Detalles</span>
+                <span className="text-white font-bold">Ver Detalles</span>
               </div>
             </div>
           </div>
