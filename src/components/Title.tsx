@@ -1,12 +1,12 @@
-
 interface TitleProps {
     text: string;
+    className?: string;
 }
 
-export default function Title({ text }: TitleProps) {
+export default function Title({ text, className = "" }: TitleProps) {
     return (
-        <h1 style={{ fontSize: '90px', maxWidth: '70%' }} className="font-bold leading-tight text-left">
+        <h2 className={`text-6xl md:text-[7em] font-extrabold uppercase leading-none tracking-normal text-black text-left ${className}`}>
             {text}
-        </h1>
+        </h2>
     );
 }

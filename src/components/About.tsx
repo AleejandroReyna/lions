@@ -2,20 +2,20 @@ import Title from './Title';
 
 export default function About() {
   return (
-    <div id="us" className="hero bg-base-100 py-20">
-      <div className="hero-content text-center">
-        <div className="max-w-4xl">
-          <div className="mb-8 uppercase tracking-widest text-primary">
+    <section id="us" className="bg-white py-12 px-6 md:px-20">
+      <div className="max-w-7xl mx-auto">
+        <div>
+          <div className="mb-2 max-w-4xl">
             <Title text="Acerca de Nosotros" />
           </div>
-          <p className="py-6 text-xl leading-relaxed text-base-content/80">
-            En <span className="font-bold text-primary">LIONS Publicity</span>, somos dos socios con visión innovadora que lideramos un
-            equipo especializado en conectar marcas con personas a través de
+          <p className="text-sm md:text-xl leading-relaxed max-w-5xl text-justify">
+            En <span className="font-bold">LIONS Publicity</span>, somos dos socios con visión innovadora lideramos un
+            equipo especializados en conectar marcas con personas a través de
             soluciones digitales y tangibles. Nuestra esencia es hacer que tu marca
             crezca y se conecte auténticamente con tu audiencia.
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
