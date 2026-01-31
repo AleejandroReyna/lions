@@ -3,7 +3,7 @@ import Title from './Title';
 export default function About() {
   return (
     <section id="us" className="bg-white py-12 px-6 md:px-20">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-8xl mx-auto">
         <div>
           <div className="mb-2 max-w-4xl">
             <Title text="Acerca de Nosotros" />
