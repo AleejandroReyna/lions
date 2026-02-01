@@ -18,7 +18,6 @@ export default function Home() {
       <WhyChooseUs />
       <Clients />
       <Portfolio />
-      <Contact />
       <Footer />
     </main>
   );

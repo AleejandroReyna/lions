@@ -3,89 +3,99 @@ import Title from './Title';
 
 export default function Contact() {
   return (
-    <div id="contact" className="py-24 bg-neutral text-neutral-content">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 uppercase">
-          <Title text="Contacto" />
+    <div className="w-full text-white text-left">
+      <div className="max-w-8xl mx-auto">
+        <div className="mb-16 text-left">
+          <Title text="Contacto" className="text-white" />
+
+          <p className="text-lg opacity-80 leading-relaxed md:max-w-xl text-left">
+            Si tienes alguna pregunta o consulta, no dudes en ponerte en contacto con nosotros a través de los siguientes medios </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-20">
           {/* Contact Info */}
-          <div className="space-y-8">
+          <div className="space-y-10">
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-primary">Información</h3>
-              <p className="mb-6 opacity-80">
-                Si tienes alguna pregunta o consulta, no dudes en ponerte en contacto
-                con nosotros a través de los siguientes medios.
-              </p>
             </div>
 
-            <div className="flex items-center space-x-4">
-              <div className="bg-primary/20 p-3 rounded-full text-primary">
-                <Mail className="w-6 h-6" />
+            <div className="space-y-6">
+              <div className="flex items-center space-x-6 group">
+                <div className="bg-white/10 p-4 rounded-xl text-white group-hover:bg-white group-hover:text-black transition-all">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest opacity-50 mb-1">Email</p>
+                  <p className="text-xl font-bold">luccaa@lionspublicity.com</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm opacity-60">Email</p>
-                <p className="font-semibold">luccaa@lionspublicity.com</p>
+
+              <div className="flex items-center space-x-6 group">
+                <div className="bg-white/10 p-4 rounded-xl text-white group-hover:bg-white group-hover:text-black transition-all">
+                  <Phone className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest opacity-50 mb-1">Teléfono</p>
+                  <p className="text-xl font-bold">+502 5517-5800</p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-6 group">
+                <div className="bg-white/10 p-4 rounded-xl text-white group-hover:bg-white group-hover:text-black transition-all">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest opacity-50 mb-1">Ubicación</p>
+                  <p className="text-xl font-bold tracking-tight">Guatemala</p>
+                </div>
               </div>
             </div>
-
-            <div className="flex items-center space-x-4">
-              <div className="bg-primary/20 p-3 rounded-full text-primary">
-                <Phone className="w-6 h-6" />
-              </div>
-              <div>
-                <p className="text-sm opacity-60">Teléfono</p>
-                <p className="font-semibold">+502 5517-5800</p>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <div className="bg-primary/20 p-3 rounded-full text-primary">
-                <MapPin className="w-6 h-6" />
-              </div>
-              <div>
-                <p className="text-sm opacity-60">Ubicación</p>
-                <p className="font-semibold">Guatemala</p>
-              </div>
-            </div>
-
-            <div className="divider"></div>
-
-            <p className="italic opacity-70">
-              "Habla con nosotros a través de nuestros canales de contacto para poder
-              iniciar un proyecto nuevo y personalizado."
-            </p>
           </div>
 
           {/* Contact Form */}
-          <div className="card bg-base-100 text-base-content shadow-2xl">
-            <div className="card-body">
-              <h3 className="card-title text-2xl mb-6">Envíanos un mensaje</h3>
-              <form className="space-y-4">
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Nombre</span>
-                  </label>
-                  <input type="text" placeholder="Tu nombre" className="input input-bordered w-full" />
+          <div className="w-full lg:col-span-2">
+            <form className="space-y-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-14">
+                <div className="form-control group">
+                  <input
+                    type="text"
+                    placeholder="NOMBRE"
+                    className="w-full bg-transparent border-t-0 border-x-0 border-b border-white/40 focus:border-white focus:outline-none transition-all py-4 text-white text-lg placeholder:text-white/60 placeholder:uppercase placeholder:tracking-widest placeholder:text-sm"
+                  />
                 </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Email</span>
-                  </label>
-                  <input type="email" placeholder="tucorreo@ejemplo.com" className="input input-bordered w-full" />
+                <div className="form-control group">
+                  <input
+                    type="tel"
+                    placeholder="TELÉFONO"
+                    className="w-full bg-transparent border-t-0 border-x-0 border-b border-white/40 focus:border-white focus:outline-none transition-all py-4 text-white text-lg placeholder:text-white/60 placeholder:uppercase placeholder:tracking-widest placeholder:text-sm"
+                  />
                 </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Mensaje</span>
-                  </label>
-                  <textarea className="textarea textarea-bordered h-32" placeholder="¿En qué podemos ayudarte?"></textarea>
+                <div className="form-control group">
+                  <input
+                    type="email"
+                    placeholder="CORREO"
+                    className="w-full bg-transparent border-t-0 border-x-0 border-b border-white/40 focus:border-white focus:outline-none transition-all py-4 text-white text-lg placeholder:text-white/60 placeholder:uppercase placeholder:tracking-widest placeholder:text-sm"
+                  />
                 </div>
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary">Enviar Mensaje</button>
+                <div className="form-control group">
+                  <input
+                    type="text"
+                    placeholder="EMPRESA"
+                    className="w-full bg-transparent border-t-0 border-x-0 border-b border-white/40 focus:border-white focus:outline-none transition-all py-4 text-white text-lg placeholder:text-white/60 placeholder:uppercase placeholder:tracking-widest placeholder:text-sm"
+                  />
                 </div>
-              </form>
-            </div>
+              </div>
+              <div className="form-control group">
+                <textarea
+                  placeholder="MENSAJE"
+                  className="w-full bg-transparent border-t-0 border-x-0 border-b border-white/40 focus:border-white focus:outline-none transition-all py-4 text-white text-lg h-12 md:h-20 resize-none placeholder:text-white/60 placeholder:uppercase placeholder:tracking-widest placeholder:text-sm"
+                ></textarea>
+              </div>
+              <div className="flex justify-start pt-4">
+                <button className="bg-white text-black px-12 py-3 rounded hover:bg-white/90 transition-all font-bold uppercase tracking-widest text-sm">
+                  Enviar
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
