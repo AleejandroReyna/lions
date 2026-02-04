@@ -33,8 +33,8 @@ export default function WhyChooseUs() {
   return (
     <section className="bg-white py-24 px-6 md:px-20">
       <div className="max-w-8xl mx-auto">
-        <div className="mb-16 max-w-5xl">
-          <Title text="¿Porque Elegir A LIONS?" />
+        <div className="mb-16 max-w-6xl">
+          <Title text="Porque Elegir A LIONS?" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {features.map((feature, index) => (
