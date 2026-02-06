@@ -10,7 +10,7 @@ interface OverlayCardProps {
 
 export default function OverlayCard({ title, background, backgroundType }: OverlayCardProps) {
     return (
-        <article className="relative w-full h-[30vh] md:h-[45vh] overflow-hidden flex items-center justify-center text-center px-4 md:px-12 group cursor-pointer transition-all">
+        <article className="relative w-full h-[30vh] md:h-[45vh] overflow-hidden flex items-center justify-center text-center px-4 md:px-12 group cursor-pointer">
             {/* Background */}
             <div className="absolute inset-0 z-0">
                 {backgroundType === 'image' ? (

@@ -38,8 +38,16 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      initial={false}
+      initial={{
+        opacity: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        paddingTop: '1.5rem',
+        paddingBottom: '1.5rem',
+        backdropFilter: 'blur(0px)',
+        boxShadow: 'none'
+      }}
       animate={{
+        opacity: 1,
         backgroundColor: isAtContact
           ? 'rgba(0, 0, 0, 0.4)'
           : isScrolled
@@ -50,9 +58,16 @@ export default function Navbar() {
         paddingTop: isScrolled || isAtContact ? '1rem' : '1.5rem',
         paddingBottom: isScrolled || isAtContact ? '1rem' : '1.5rem',
         boxShadow: isScrolled || isAtContact ? '0 10px 15px -3px rgba(0, 0, 0, 0.1)' : 'none',
-        y: isScrolled ? 0 : 0, // Placeholder if we want to add an entry animation
       }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
+      transition={{
+        delay: 0.2,
+        duration: 0.8,
+        ease: [0.21, 0.47, 0.32, 0.98],
+        backgroundColor: { duration: 0.4 },
+        paddingTop: { duration: 0.4 },
+        paddingBottom: { duration: 0.4 },
+        backdropFilter: { duration: 0.4 }
+      }}
       className={`navbar z-50 px-4 md:px-12 fixed top-0 w-full`}
     >
       <div className="navbar-start">
@@ -97,7 +112,7 @@ export default function Navbar() {
           </motion.div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 text-base-content rounded-box z-[1] mt-3 w-52 p-2 shadow-2xl"
+            className="menu menu-sm dropdown-content bg-base-100 text-base-content rounded-box z-[1] mt-3 w-52 p-2 shadow-2xl !translate-y-0"
           >
             <li><Link href="#us">Nosotros</Link></li>
             <li><Link href="#promotionals">Promocionales</Link></li>
