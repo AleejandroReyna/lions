@@ -290,6 +290,39 @@ export default buildConfig({
             ],
         },
         {
+            slug: 'services',
+            admin: {
+                useAsTitle: 'name',
+            },
+            fields: [
+                {
+                    name: 'name',
+                    type: 'text',
+                    required: true,
+                },
+                {
+                    name: 'slug',
+                    type: 'text',
+                    required: true,
+                    unique: true,
+                    admin: {
+                        position: 'sidebar',
+                    },
+                },
+                {
+                    name: 'content',
+                    type: 'richText',
+                    editor: lexicalEditor({}),
+                },
+                {
+                    name: 'thumbnail',
+                    type: 'upload',
+                    relationTo: 'media',
+                    required: true,
+                },
+            ],
+        },
+        {
             slug: 'media',
             access: {
                 read: () => true,
