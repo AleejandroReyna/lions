@@ -33,11 +33,12 @@ export default async function Portfolio() {
             .filter(Boolean);
 
           return (
-            <InfiniteCarousel
-              key={type.id}
-              items={relatedProductThumbnails as any}
-              direction={index % 2 === 0 ? 'default' : 'reverse'}
-            />
+            <div key={type.id} className="mb-4 last:mb-0">
+              <InfiniteCarousel
+                items={relatedProductThumbnails as any}
+                direction={index % 2 === 0 ? 'default' : 'reverse'}
+              />
+            </div>
           );
         })}
       </div>
