@@ -1,8 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface CarouselItem {
+export interface CarouselItem {
     url: string;
+    name?: string;
 }
 
 interface InfiniteCarouselProps {
@@ -11,8 +12,16 @@ interface InfiniteCarouselProps {
 }
 
 export default function InfiniteCarousel({ items, direction = 'default' }: InfiniteCarouselProps) {
-    // Duplicamos los items para crear el efecto infinito sin saltos
-    const duplicatedItems = [...items, ...items];
+    if (!items || items.length === 0) return null;
+
+    // Repetimos los items hasta tener al menos 16 para asegurar un scroll fluido
+    let baseItems = [...items];
+    while (baseItems.length < 16) {
+        baseItems = [...baseItems, ...items];
+    }
+
+    // Duplicamos el set final para el loop infinito
+    const duplicatedItems = [...baseItems, ...baseItems];
 
     const animationClass = direction === 'default' ? 'animate-scroll-left' : 'animate-scroll-right';
 
@@ -35,8 +44,10 @@ export default function InfiniteCarousel({ items, direction = 'default' }: Infin
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover/item:scale-110"
                             />
-                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/item:opacity-100 transition-all duration-500 flex items-center justify-center">
-                                <span className="text-white font-bold uppercase tracking-widest text-xs border-b border-white pb-1">Ver Detalles</span>
+                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/item:opacity-100 transition-all duration-500 flex items-center justify-center p-4 text-center">
+                                <span className="text-white font-bold uppercase tracking-widest text-sm border-b border-white pb-1">
+                                    {item.name || 'Ver Detalles'}
+                                </span>
                             </div>
                         </div>
                     </div>

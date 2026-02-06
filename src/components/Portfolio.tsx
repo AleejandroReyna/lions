@@ -3,21 +3,49 @@ import { ArrowRight } from 'lucide-react';
 import Title from './Title';
 import InfiniteCarousel from './common/InfiniteCarousel';
 
-export default function Portfolio() {
+import { getPayload } from 'payload';
+import config from '@payload-config';
+
+export default async function Portfolio() {
+  const payload = await getPayload({ config });
+  const { docs: productTypes } = await payload.find({
+    collection: 'product-types',
+    limit: 100,
+    sort: 'createdAt',
+  });
+
+  const { docs: products } = await payload.find({
+    collection: 'products',
+    limit: 1000,
+  });
+
   const images = Array.from({ length: 8 }, (_, i) => ({
     url: "/home/product.webp"
   }));
 
   return (
     <section id="promotionals" className="bg-white py-24 overflow-hidden">
-      <div className="max-w-8xl mx-auto mb-12 px-6 md:px-20">
-        <Title text="Promocionales con impacto" />
-      </div>
 
       <div className="max-w-8xl mx-auto overflow-hidden md:px-20">
-        <InfiniteCarousel items={images} direction="default" />
-        <InfiniteCarousel items={images} direction="reverse" />
-        <InfiniteCarousel items={images} direction="default" />
+
+        <div className="mb-16">
+          <Title text="Promocionales con impacto" />
+        </div>
+
+        {productTypes.map((type, index) => {
+          const relatedProductThumbnails = products
+            .filter(p => typeof p.type === 'object' ? p.type.id === type.id : p.type === type.id)
+            .map(p => (typeof p.thumbnail === 'object' ? { url: p.thumbnail?.url, name: p.name } : null))
+            .filter(Boolean);
+
+          return (
+            <InfiniteCarousel
+              key={type.id}
+              items={relatedProductThumbnails as any}
+              direction={index % 2 === 0 ? 'default' : 'reverse'}
+            />
+          );
+        })}
       </div>
 
       <div className="flex justify-center mt-12 px-4">

@@ -188,6 +188,40 @@ export default buildConfig({
             ],
         },
         {
+            slug: 'product-types',
+            admin: {
+                useAsTitle: 'name',
+            },
+            fields: [
+                {
+                    name: 'name',
+                    type: 'text',
+                    required: true,
+                },
+                {
+                    name: 'slug',
+                    type: 'text',
+                    required: true,
+                    unique: true,
+                    admin: {
+                        position: 'sidebar',
+                    },
+                },
+                {
+                    name: 'description',
+                    type: 'textarea',
+                },
+                {
+                    name: 'thumbnail',
+                    type: 'upload',
+                    relationTo: 'media',
+                    admin: {
+                        position: 'sidebar',
+                    },
+                },
+            ],
+        },
+        {
             slug: 'products',
             admin: {
                 useAsTitle: 'name',
@@ -199,19 +233,36 @@ export default buildConfig({
                     required: true,
                 },
                 {
+                    name: 'slug',
+                    type: 'text',
+                    required: true,
+                    unique: true,
+                    admin: {
+                        position: 'sidebar',
+                    },
+                },
+                {
                     name: 'description',
                     type: 'textarea',
                 },
                 {
                     name: 'url',
                     type: 'text',
-                    required: true,
                 },
                 {
                     name: 'thumbnail',
                     type: 'upload',
                     relationTo: 'media',
                     required: true,
+                },
+                {
+                    name: 'type',
+                    type: 'relationship',
+                    relationTo: 'product-types',
+                    required: true,
+                    admin: {
+                        position: 'sidebar',
+                    },
                 },
             ],
         },
@@ -227,7 +278,7 @@ export default buildConfig({
                         name: 'thumbnail',
                         width: 400,
                         height: 300,
-                        position: 'centre',
+                        position: 'center',
                     },
                 ],
                 adminThumbnail: 'thumbnail',

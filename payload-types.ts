@@ -71,6 +71,7 @@ export interface Config {
     posts: Post;
     categories: Category;
     tags: Tag;
+    'product-types': ProductType;
     products: Product;
     media: Media;
     'payload-kv': PayloadKv;
@@ -84,6 +85,7 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
+    'product-types': ProductTypesSelect<false> | ProductTypesSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -238,14 +240,29 @@ export interface Tag {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-types".
+ */
+export interface ProductType {
+  id: string;
+  name: string;
+  slug: string;
+  description?: string | null;
+  thumbnail?: (string | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "products".
  */
 export interface Product {
   id: string;
   name: string;
+  slug: string;
   description?: string | null;
-  url: string;
+  url?: string | null;
   thumbnail: string | Media;
+  type: string | ProductType;
   updatedAt: string;
   createdAt: string;
 }
@@ -288,6 +305,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'tags';
         value: string | Tag;
+      } | null)
+    | ({
+        relationTo: 'product-types';
+        value: string | ProductType;
       } | null)
     | ({
         relationTo: 'products';
@@ -404,13 +425,27 @@ export interface TagsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-types_select".
+ */
+export interface ProductTypesSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  description?: T;
+  thumbnail?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "products_select".
  */
 export interface ProductsSelect<T extends boolean = true> {
   name?: T;
+  slug?: T;
   description?: T;
   url?: T;
   thumbnail?: T;
+  type?: T;
   updatedAt?: T;
   createdAt?: T;
 }
