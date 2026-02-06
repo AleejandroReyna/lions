@@ -2,9 +2,9 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import Title from './Title';
 import InfiniteCarousel from './common/InfiniteCarousel';
-
 import { getPayload } from 'payload';
 import config from '@payload-config';
+import { FadeIn } from './common/Animations';
 
 export default async function Portfolio() {
   const payload = await getPayload({ config });
@@ -19,18 +19,12 @@ export default async function Portfolio() {
     limit: 1000,
   });
 
-  const images = Array.from({ length: 8 }, (_, i) => ({
-    url: "/home/product.webp"
-  }));
-
   return (
     <section id="promotionals" className="bg-white py-24 overflow-hidden">
-
       <div className="max-w-8xl mx-auto overflow-hidden md:px-20">
-
-        <div className="mb-16">
+        <FadeIn className="mb-16">
           <Title text="Promocionales con impacto" />
-        </div>
+        </FadeIn>
 
         {productTypes.map((type, index) => {
           const relatedProductThumbnails = products
@@ -48,11 +42,11 @@ export default async function Portfolio() {
         })}
       </div>
 
-      <div className="flex justify-center mt-12 px-4">
+      <FadeIn className="flex justify-center mt-12 px-4" delay={0.3}>
         <Link href="/catalogo" className="btn btn-neutral">
           Ver Catálogo <ArrowRight className="w-5 h-5" />
         </Link>
-      </div>
+      </FadeIn>
     </section>
   );
 }

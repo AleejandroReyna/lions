@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,16 +12,15 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > window.innerHeight - 100);
+      setIsScrolled(window.scrollY > 100);
     };
 
-    // Intersection Observer for Contact section
+    // Intersection Observer for Contact section (Footer)
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsAtContact(entry.isIntersecting);
       },
       {
-        // Detectamos cuando el elemento cruza la línea de los 80px (altura del navbar)
         threshold: 0,
         rootMargin: "-80px 0px -99% 0px"
       }
@@ -36,31 +36,42 @@ export default function Navbar() {
     };
   }, []);
 
-  // Determinamos el estilo actual
-  const navbarClasses = isAtContact
-    ? 'fixed top-0 bg-black/40 backdrop-blur-md shadow-md text-white py-4'
-    : isScrolled
-      ? 'fixed top-0 bg-white/90 backdrop-blur-md shadow-md text-black py-4'
-      : 'absolute top-0 bg-transparent text-white py-6';
-
-  const logoClasses = `h-10 w-auto object-contain ${isScrolled && !isAtContact ? 'mix-blend-difference' : ''
-    }`;
-
-  const mobileMenuBtnClasses = `btn btn-ghost ${isScrolled && !isAtContact ? 'text-black' : 'text-white'
-    }`;
-
   return (
-    <div className={`navbar z-50 px-4 md:px-12 ${navbarClasses}`}>
+    <motion.nav
+      initial={false}
+      animate={{
+        backgroundColor: isAtContact
+          ? 'rgba(0, 0, 0, 0.4)'
+          : isScrolled
+            ? 'rgba(255, 255, 255, 0.9)'
+            : 'rgba(0, 0, 0, 0)',
+        backdropFilter: isScrolled || isAtContact ? 'blur(12px)' : 'blur(0px)',
+        color: isAtContact || !isScrolled ? '#FFFFFF' : '#000000',
+        paddingTop: isScrolled || isAtContact ? '1rem' : '1.5rem',
+        paddingBottom: isScrolled || isAtContact ? '1rem' : '1.5rem',
+        boxShadow: isScrolled || isAtContact ? '0 10px 15px -3px rgba(0, 0, 0, 0.1)' : 'none',
+        y: isScrolled ? 0 : 0, // Placeholder if we want to add an entry animation
+      }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+      className={`navbar z-50 px-4 md:px-12 fixed top-0 w-full`}
+    >
       <div className="navbar-start">
         <Link href="/" className="flex items-center">
-          <Image
-            src="/brand/logo/white.webp"
-            alt="LIONS PUBLICITY"
-            width={120}
-            height={40}
-            className={logoClasses}
-            priority
-          />
+          <motion.div
+            animate={{
+              filter: isScrolled && !isAtContact ? 'invert(1) brightness(0)' : 'invert(0) brightness(1)',
+            }}
+            transition={{ duration: 0.4 }}
+          >
+            <Image
+              src="/brand/logo/white.webp"
+              alt="LIONS PUBLICITY"
+              width={120}
+              height={40}
+              className="h-10 w-auto object-contain"
+              priority
+            />
+          </motion.div>
         </Link>
       </div>
 
@@ -68,17 +79,22 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden lg:flex">
           <ul className="menu menu-horizontal px-1 font-bold uppercase tracking-widest text-xs">
-            <li><Link href="#us" className="hover:text-primary">Nosotros</Link></li>
-            <li><Link href="#promotionals" className="hover:text-primary">Promocionales</Link></li>
-            <li><Link href="#contact" className="hover:text-primary">Contactanos</Link></li>
+            <li><Link href="#us" className="hover:text-primary transition-colors">Nosotros</Link></li>
+            <li><Link href="#promotionals" className="hover:text-primary transition-colors">Promocionales</Link></li>
+            <li><Link href="#contact" className="hover:text-primary transition-colors">Contactanos</Link></li>
           </ul>
         </div>
 
         {/* Mobile Menu */}
         <div className="dropdown dropdown-end lg:hidden">
-          <div tabIndex={0} role="button" className={mobileMenuBtnClasses}>
+          <motion.div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost"
+            animate={{ color: isScrolled && !isAtContact ? '#000000' : '#FFFFFF' }}
+          >
             <Menu className="h-6 w-6" />
-          </div>
+          </motion.div>
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 text-base-content rounded-box z-[1] mt-3 w-52 p-2 shadow-2xl"
@@ -89,6 +105,6 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
-    </div>
+    </motion.nav>
   );
 }

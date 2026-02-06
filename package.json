@@ -17,6 +17,7 @@
     "@payloadcms/storage-vercel-blob": "^3.74.0",
     "@prisma/client": "6.19",
     "dotenv": "^17.2.3",
+    "framer-motion": "^12.33.0",
     "graphql": "^16.12.0",
     "lucide-react": "^0.562.0",
     "next": "16.1.4",
