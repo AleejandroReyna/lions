@@ -1,7 +1,16 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
 import Title from './Title';
+import { getPayload } from 'payload';
+import config from '@payload-config';
 
-export default function Contact() {
+export default async function Contact() {
+  const payload = await getPayload({ config });
+  const settings = await payload.findGlobal({
+    slug: 'settings',
+  });
+
+  const email = settings.contactInfo?.email || 'luccaa@lionspublicity.com';
+  const phone = settings.contactInfo?.phone || '+502 5517-5800';
   return (
     <div className="w-full text-white text-left">
       <div className="max-w-8xl mx-auto">
@@ -25,7 +34,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-widest opacity-50 mb-1">Email</p>
-                  <p className="text-xl font-bold">luccaa@lionspublicity.com</p>
+                  <p className="text-xl font-bold">{email}</p>
                 </div>
               </div>
 
@@ -35,7 +44,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-widest opacity-50 mb-1">Teléfono</p>
-                  <p className="text-xl font-bold">+502 5517-5800</p>
+                  <p className="text-xl font-bold">{phone}</p>
                 </div>
               </div>
 

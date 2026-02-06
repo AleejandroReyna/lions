@@ -349,6 +349,92 @@ export default buildConfig({
         },
     ],
 
+    globals: [
+        {
+            slug: 'settings',
+            admin: {
+                group: 'Admin',
+            },
+            fields: [
+                {
+                    name: 'contactInfo',
+                    type: 'group',
+                    fields: [
+                        {
+                            name: 'email',
+                            type: 'email',
+                        },
+                        {
+                            name: 'phone',
+                            type: 'text',
+                        },
+                    ],
+                },
+                {
+                    name: 'socialLinks',
+                    type: 'group',
+                    fields: [
+                        {
+                            name: 'facebook',
+                            type: 'text',
+                        },
+                        {
+                            name: 'instagram',
+                            type: 'text',
+                        },
+                        {
+                            name: 'x',
+                            type: 'text',
+                            label: 'X (Twitter)',
+                        },
+                        {
+                            name: 'linkedin',
+                            type: 'text',
+                        },
+                    ],
+                },
+                {
+                    name: 'customSettings',
+                    type: 'array',
+                    label: 'Configuraciones Extra (Llave-Valor)',
+                    fields: [
+                        {
+                            name: 'key',
+                            type: 'text',
+                            required: true,
+                        },
+                        {
+                            name: 'value',
+                            type: 'text',
+                            required: true,
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            slug: 'home',
+            admin: {
+                group: 'Admin',
+            },
+            fields: [
+                {
+                    name: 'hero',
+                    type: 'array',
+                    label: 'Hero Slides (Solo Texto)',
+                    minRows: 1,
+                    fields: [
+                        {
+                            name: 'title',
+                            type: 'text',
+                            required: true,
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+
     secret: process.env.PAYLOAD_SECRET || 'ESTO_DEBE_SER_SECRETO',
 
     typescript: {

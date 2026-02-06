@@ -1,10 +1,25 @@
-import Image from 'next/image';
-import Title from './Title';
+import { getPayload } from 'payload';
+import config from '@payload-config';
+import HeroCarousel from './common/HeroCarousel';
 
-export default function Hero() {
+export default async function Hero() {
+  const payload = await getPayload({ config });
+  const homeData = await payload.findGlobal({
+    slug: 'home' as any,
+  }) as any;
+
+  const slides = homeData.hero?.map((slide: any) => ({
+    title: slide.title,
+  })) || [];
+
+  // Fallback slide if nothing is configured
+  const displaySlides = slides.length > 0 ? slides : [
+    { title: "Creatividad y precisión, cuidando cada detalle." }
+  ];
+
   return (
     <section className="hero min-h-screen relative overflow-hidden">
-      {/* Video Background */}
+      {/* Static Video Background */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -14,20 +29,13 @@ export default function Hero() {
           className="w-full h-full object-cover"
         >
           <source src="/home/hero.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
-        {/* Dark Overlay for readability */}
+        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      <div className="hero-content text-center text-white relative z-10">
-        <div className="max-w-5xl">
-          <div className="mb-5">
-            <h2 className="mb-2 text-5xl font-black uppercase tracking-tighter">
-              Creatividad y precisión, cuidando cada detalle.
-            </h2>
-          </div>
-        </div>
+      <div className="hero-content text-center text-white relative z-10 w-full h-full">
+        <HeroCarousel slides={displaySlides} />
       </div>
     </section>
   );

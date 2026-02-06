@@ -1,8 +1,16 @@
 import Link from 'next/link';
-import { Facebook, Instagram, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 import Contact from './Contact';
+import { getPayload } from 'payload';
+import config from '@payload-config';
 
-export default function Footer() {
+export default async function Footer() {
+  const payload = await getPayload({ config });
+  const settings = await payload.findGlobal({
+    slug: 'settings',
+  });
+
+  const social = settings.socialLinks || {};
   return (
     <footer id="contact" className="relative footer footer-center p-20 text-white overflow-hidden min-h-screen flex items-center justify-center">
       {/* Video Background */}
@@ -36,15 +44,26 @@ export default function Footer() {
           </nav>
           <nav>
             <div className="grid grid-flow-col gap-6">
-              <Link href="#" className="hover:scale-110 transition-transform">
-                <Instagram className="w-7 h-7" />
-              </Link>
-              <Link href="#" className="hover:scale-110 transition-transform">
-                <Facebook className="w-7 h-7" />
-              </Link>
-              <Link href="#" className="hover:scale-110 transition-transform">
-                <Twitter className="w-7 h-7" />
-              </Link>
+              {social.instagram && (
+                <Link href={social.instagram} target="_blank" className="hover:scale-110 transition-transform">
+                  <Instagram className="w-7 h-7" />
+                </Link>
+              )}
+              {social.facebook && (
+                <Link href={social.facebook} target="_blank" className="hover:scale-110 transition-transform">
+                  <Facebook className="w-7 h-7" />
+                </Link>
+              )}
+              {social.x && (
+                <Link href={social.x} target="_blank" className="hover:scale-110 transition-transform">
+                  <Twitter className="w-7 h-7" />
+                </Link>
+              )}
+              {social.linkedin && (
+                <Link href={social.linkedin} target="_blank" className="hover:scale-110 transition-transform">
+                  <Linkedin className="w-7 h-7" />
+                </Link>
+              )}
             </div>
           </nav>
           <aside className="pt-8 border-t border-white/10 w-full max-w-2xl">
