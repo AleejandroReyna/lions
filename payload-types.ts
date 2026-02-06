@@ -73,6 +73,7 @@ export interface Config {
     tags: Tag;
     'product-types': ProductType;
     products: Product;
+    clients: Client;
     media: Media;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -87,6 +88,7 @@ export interface Config {
     tags: TagsSelect<false> | TagsSelect<true>;
     'product-types': ProductTypesSelect<false> | ProductTypesSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
+    clients: ClientsSelect<false> | ClientsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -268,6 +270,18 @@ export interface Product {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clients".
+ */
+export interface Client {
+  id: string;
+  name: string;
+  thumbnail: string | Media;
+  url?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -313,6 +327,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'products';
         value: string | Product;
+      } | null)
+    | ({
+        relationTo: 'clients';
+        value: string | Client;
       } | null)
     | ({
         relationTo: 'media';
@@ -446,6 +464,17 @@ export interface ProductsSelect<T extends boolean = true> {
   url?: T;
   thumbnail?: T;
   type?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clients_select".
+ */
+export interface ClientsSelect<T extends boolean = true> {
+  name?: T;
+  thumbnail?: T;
+  url?: T;
   updatedAt?: T;
   createdAt?: T;
 }

@@ -267,6 +267,29 @@ export default buildConfig({
             ],
         },
         {
+            slug: 'clients',
+            admin: {
+                useAsTitle: 'name',
+            },
+            fields: [
+                {
+                    name: 'name',
+                    type: 'text',
+                    required: true,
+                },
+                {
+                    name: 'thumbnail',
+                    type: 'upload',
+                    relationTo: 'media',
+                    required: true,
+                },
+                {
+                    name: 'url',
+                    type: 'text',
+                },
+            ],
+        },
+        {
             slug: 'media',
             access: {
                 read: () => true,
