@@ -144,6 +144,9 @@ export default buildConfig({
                     },
                 },
             ],
+            hooks: {
+                afterChange: [revalidate],
+            },
         },
         {
             slug: 'categories',
@@ -177,6 +180,9 @@ export default buildConfig({
                     relationTo: 'categories',
                 },
             ],
+            hooks: {
+                afterChange: [revalidate],
+            },
         },
         {
             slug: 'tags',
@@ -196,6 +202,9 @@ export default buildConfig({
                     unique: true,
                 },
             ],
+            hooks: {
+                afterChange: [revalidate],
+            },
         },
         {
             slug: 'product-types',
@@ -230,6 +239,9 @@ export default buildConfig({
                     },
                 },
             ],
+            hooks: {
+                afterChange: [revalidate],
+            },
         },
         {
             slug: 'products',
@@ -275,6 +287,9 @@ export default buildConfig({
                     },
                 },
             ],
+            hooks: {
+                afterChange: [revalidate],
+            },
         },
         {
             slug: 'clients',
@@ -298,6 +313,9 @@ export default buildConfig({
                     type: 'text',
                 },
             ],
+            hooks: {
+                afterChange: [revalidate],
+            },
         },
         {
             slug: 'services',
@@ -331,6 +349,9 @@ export default buildConfig({
                     required: true,
                 },
             ],
+            hooks: {
+                afterChange: [revalidate],
+            },
         },
         {
             slug: 'media',
@@ -356,6 +377,9 @@ export default buildConfig({
                     type: 'text',
                 },
             ],
+            hooks: {
+                afterChange: [revalidate],
+            },
         },
     ],
 
