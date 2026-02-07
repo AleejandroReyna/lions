@@ -215,11 +215,11 @@ export default function CatalogGrid({ products, pagination, productTypes }: Cata
                                                     transition: { delay: index * 0.05, duration: 0.3 }
                                                 }
                                             }}
-                                            className="group bg-[#F8F8F8] rounded-2xl overflow-hidden flex flex-col h-full border border-black/[0.03] hover:border-black/10 transition-colors"
+                                            className="group bg-[#F8F8F8] rounded-2xl overflow-hidden flex flex-col h-full border border-black/[0.03] transition-colors"
                                         >
                                             <div className="aspect-square overflow-hidden relative">
                                                 {product.isNew && (
-                                                    <span className="absolute top-4 left-4 z-20 bg-primary text-white text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-tighter shadow-sm">
+                                                    <span className="absolute top-4 left-4 z-20 bg-black text-white text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-tighter shadow-sm">
                                                         Nuevo
                                                     </span>
                                                 )}
@@ -227,7 +227,7 @@ export default function CatalogGrid({ products, pagination, productTypes }: Cata
                                                     src={product.thumbnail?.url || '/home/service.webp'}
                                                     alt={product.name}
                                                     fill
-                                                    className="object-contain p-8 group-hover:scale-110 transition-transform duration-700"
+                                                    className="object-contain p-8 transition-transform duration-700"
                                                 />
                                             </div>
                                             <div className="p-8 pt-0 flex flex-col flex-grow">
@@ -235,7 +235,7 @@ export default function CatalogGrid({ products, pagination, productTypes }: Cata
                                                     <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-black/30">
                                                         {typeof product.type === 'object' ? product.type.name : ''}
                                                     </p>
-                                                    <h3 className="text-xl font-black uppercase tracking-tight leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                                                    <h3 className="text-xl font-black uppercase tracking-tight leading-tight transition-colors line-clamp-2">
                                                         {product.name}
                                                     </h3>
                                                     <p className="text-sm text-black/50 line-clamp-2 leading-relaxed">

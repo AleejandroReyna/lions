@@ -37,10 +37,10 @@ export default async function Footer() {
 
         <div className="flex flex-col items-center gap-10">
           <nav className="grid grid-cols-2 lg:grid-flow-col gap-x-8 gap-y-6 lg:gap-6 font-bold uppercase tracking-widest text-sm text-center">
-            <Link href="#us" className="hover:text-primary transition-colors">Nosotros</Link>
-            <Link href="#promotionals" className="hover:text-primary transition-colors text-nowrap">Promocionales</Link>
-            <Link href="#contact" className="hover:text-primary transition-colors">Contacto</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Catálogo</Link>
+            <Link href="/#us" className="hover:underline transition-all">Nosotros</Link>
+            <Link href="/#promotionals" className="hover:underline transition-all text-nowrap">Promocionales</Link>
+            <Link href="/catalog" className="hover:underline transition-all">Catálogo</Link>
+            <Link href="/#contact" className="hover:underline transition-all">Contacto</Link>
           </nav>
           <nav>
             <div className="grid grid-flow-col gap-6">

@@ -157,7 +157,10 @@ export default function Navbar() {
             <ul className="menu menu-horizontal px-1 font-bold uppercase tracking-widest text-xs gap-2">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="hover:text-primary transition-colors">
+                  <Link
+                    href={link.href}
+                    className="hover:underline hover:bg-transparent focus:bg-transparent active:bg-transparent transition-all"
+                  >
                     {link.name}
                   </Link>
                 </li>
