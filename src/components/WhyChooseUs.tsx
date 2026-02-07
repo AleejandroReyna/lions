@@ -47,7 +47,7 @@ export default function WhyChooseUs() {
                 <div className="mb-8">
                   <feature.Icon className={`w-14 h-14 ${feature.featured ? 'text-white' : 'text-black'}`} />
                 </div>
-                <h3 className="text-4xl font-black uppercase leading-[1.1] mb-4 tracking-tight">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-black uppercase leading-[1.1] mb-4 tracking-tight">
                   {feature.title}
                 </h3>
                 <p className={`text-base leading-relaxed ${feature.featured ? 'text-white' : 'text-black/90'}`}>
