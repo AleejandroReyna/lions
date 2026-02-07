@@ -17,6 +17,7 @@
     "@payloadcms/storage-vercel-blob": "^3.74.0",
     "@prisma/client": "6.19",
     "dotenv": "^17.2.3",
+    "formik": "^2.4.9",
     "framer-motion": "^12.33.0",
     "graphql": "^16.12.0",
     "lucide-react": "^0.562.0",
@@ -24,7 +25,8 @@
     "payload": "^3.74.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

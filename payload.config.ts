@@ -386,6 +386,54 @@ export default buildConfig({
                 afterChange: [revalidate],
             },
         },
+        {
+            slug: 'contact-requests',
+            labels: {
+                singular: 'Contact Form',
+                plural: 'Contact Forms',
+            },
+            admin: {
+                group: 'Inbox',
+                useAsTitle: 'name',
+                defaultColumns: ['name', 'email', 'createdAt'],
+            },
+            access: {
+                create: ({ req: { user } }) => !user,
+                read: ({ req: { user } }) => !!user,
+                update: ({ req: { user } }) => !!user,
+                delete: ({ req: { user } }) => !!user,
+            },
+            fields: [
+                {
+                    name: 'name',
+                    type: 'text',
+                    required: true,
+                    admin: { readOnly: true },
+                },
+                {
+                    name: 'email',
+                    type: 'email',
+                    required: true,
+                    admin: { readOnly: true },
+                },
+                {
+                    name: 'phone',
+                    type: 'text',
+                    admin: { readOnly: true },
+                },
+                {
+                    name: 'company',
+                    type: 'text',
+                    admin: { readOnly: true },
+                },
+                {
+                    name: 'message',
+                    type: 'textarea',
+                    required: true,
+                    admin: { readOnly: true },
+                },
+            ],
+        },
     ],
 
     globals: [
