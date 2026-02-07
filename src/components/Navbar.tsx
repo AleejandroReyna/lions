@@ -46,9 +46,10 @@ export default function Navbar() {
   }, [isOpen]);
 
   const navLinks = [
-    { name: 'Nosotros', href: '#us' },
-    { name: 'Promocionales', href: '#promotionals' },
-    { name: 'Contacto', href: '#contact' },
+    { name: 'Nosotros', href: '/#us' },
+    { name: 'Promocionales', href: '/#promotionals' },
+    { name: 'Catálogo', href: '/catalog' },
+    { name: 'Contacto', href: '/#contact' },
   ];
 
   const socialLinks = [
