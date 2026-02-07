@@ -9,7 +9,7 @@ export async function getProductsAction(options: {
     limit?: number;
     search?: string;
 }) {
-    const { categories = [], page = 1, limit = 1, search = '' } = options;
+    const { categories = [], page = 1, limit = 12, search = '' } = options;
     const payload = await getPayload({ config });
 
     const where: any = {};
