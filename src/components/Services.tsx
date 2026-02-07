@@ -8,6 +8,7 @@ export default async function Services() {
 
   const { docs: servicesDocs } = await payload.find({
     collection: 'services',
+    sort: 'createdAt',
     limit: 100,
   });
 

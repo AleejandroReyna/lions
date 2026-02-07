@@ -59,8 +59,7 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
                             onClick={() => setCurrent(index)}
                             className="relative h-1.5 focus:outline-none group"
                         >
-                            <div className={`h-full rounded-full bg-white/20 transition-all duration-300 ${index === current ? 'w-8' : 'w-2 group-hover:bg-white/40'
-                                }`} />
+                            <div className={`h-full rounded-full bg-white/20 transition-all duration-300 ${index === current ? 'w-8' : 'w-2 group-hover:bg-white/40'}`} />
 
                             {index === current && (
                                 <motion.div

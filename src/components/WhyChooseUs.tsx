@@ -42,8 +42,7 @@ export default function WhyChooseUs() {
           {features.map((feature, index) => (
             <StaggerItem key={index}>
               <article
-                className={`h-full flex flex-col items-start text-left p-10 border border-black rounded-xl ${feature.featured ? 'bg-black text-white' : 'bg-transparent text-black'
-                  }`}
+                className={`h-full flex flex-col items-start text-left p-10 border border-black rounded-xl ${feature.featured ? 'bg-black text-white' : 'bg-transparent text-black'}`}
               >
                 <div className="mb-8">
                   <feature.Icon className={`w-14 h-14 ${feature.featured ? 'text-white' : 'text-black'}`} />

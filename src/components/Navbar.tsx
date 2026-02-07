@@ -44,7 +44,8 @@ export default function Navbar() {
         paddingTop: '1.5rem',
         paddingBottom: '1.5rem',
         backdropFilter: 'blur(0px)',
-        boxShadow: 'none'
+        boxShadow: 'none',
+        color: '#FFFFFF'
       }}
       animate={{
         opacity: 1,
@@ -89,6 +90,8 @@ export default function Navbar() {
           </motion.div>
         </Link>
       </div>
+
+      <div className="navbar-center"></div>
 
       <div className="navbar-end">
         {/* Desktop Menu */}

@@ -10,7 +10,7 @@ import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-const revalidate = async (doc: any) => {
+const revalidate = async ({ doc }: any) => {
     const url = `${process.env.SERVER_URL || 'http://localhost:3000'}/api/revalidate?path=/&secret=${process.env['PAYLOAD-SECRET']}`;
     try {
         await fetch(url);
