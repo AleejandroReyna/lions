@@ -10,6 +10,7 @@ export default async function Clients() {
   const { docs: clientsDocs } = await payload.find({
     collection: 'clients',
     limit: 100,
+    sort: 'createdAt',
   });
 
   return (

@@ -17,6 +17,7 @@ export default async function Portfolio() {
   const { docs: products } = await payload.find({
     collection: 'products',
     limit: 1000,
+    sort: 'createdAt',
   });
 
   return (
