@@ -21,8 +21,8 @@ export default async function Portfolio() {
   });
 
   return (
-    <section id="promotionals" className="bg-white py-24 overflow-hidden">
-      <div className="max-w-8xl mx-auto overflow-hidden md:px-20">
+    <section id="promotionals" className="bg-white py-24 overflow-hidden px-6 md:px-20">
+      <div className="max-w-8xl mx-auto overflow-hidden">
         <FadeIn className="mb-16">
           <Title text="Promocionales con impacto" />
         </FadeIn>

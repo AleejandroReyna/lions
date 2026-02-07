@@ -12,7 +12,7 @@ export default async function Footer() {
 
   const social = settings.socialLinks || {};
   return (
-    <footer id="contact" className="relative footer footer-center p-20 text-white overflow-hidden min-h-screen flex items-center justify-center">
+    <footer id="contact" className="relative footer footer-center px-6 py-16 md:p-20 text-white overflow-hidden min-h-screen flex items-center justify-center">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
@@ -29,16 +29,16 @@ export default async function Footer() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full flex flex-col items-center gap-20">
+      <div className="relative z-10 w-full flex flex-col items-center gap-12 md:gap-20">
         {/* Contact Section Integrated */}
         <div className="w-full">
           <Contact />
         </div>
 
         <div className="flex flex-col items-center gap-10">
-          <nav className="grid grid-flow-col gap-6 font-bold uppercase tracking-widest text-sm">
+          <nav className="grid grid-cols-2 lg:grid-flow-col gap-x-8 gap-y-6 lg:gap-6 font-bold uppercase tracking-widest text-sm text-center">
             <Link href="#us" className="hover:text-primary transition-colors">Nosotros</Link>
-            <Link href="#promotionals" className="hover:text-primary transition-colors">Promocionales</Link>
+            <Link href="#promotionals" className="hover:text-primary transition-colors text-nowrap">Promocionales</Link>
             <Link href="#contact" className="hover:text-primary transition-colors">Contacto</Link>
             <Link href="#" className="hover:text-primary transition-colors">Catálogo</Link>
           </nav>
@@ -66,9 +66,9 @@ export default async function Footer() {
               )}
             </div>
           </nav>
-          <aside className="pt-8 border-t border-white/10 w-full max-w-2xl">
-            <p className="text-xs opacity-50 uppercase tracking-widest">
-              Copyright © 2025 - All right reserved by LIONS PUBLICITY
+          <aside className="pt-8 border-t border-white/10 w-full max-w-2xl text-center">
+            <p className="text-xs opacity-50 uppercase tracking-widest leading-loose">
+              Copyright © 2025 - All right reserved by<br className="md:hidden" /> LIONS PUBLICITY
             </p>
           </aside>
         </div>

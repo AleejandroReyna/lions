@@ -49,14 +49,14 @@ export default function ContactForm({ email, phone }: ContactFormProps) {
     return (
         <div className="w-full text-white text-left">
             <div className="max-w-8xl mx-auto">
-                <FadeIn className="mb-16 text-left" staggerChildren={0.2}>
+                <FadeIn className="mb-10 md:mb-16 text-left" staggerChildren={0.2}>
                     <Title text="Contacto" className="text-white" />
                     <p className="text-lg opacity-80 leading-relaxed md:max-w-xl text-left">
                         Si tienes alguna pregunta o consulta, no dudes en ponerte en contacto con nosotros a través de los siguientes medios
                     </p>
                 </FadeIn>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-20">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-20">
                     {/* Contact Info */}
                     <div className="space-y-10">
                         <StaggerChildren className="space-y-6">
@@ -101,7 +101,7 @@ export default function ContactForm({ email, phone }: ContactFormProps) {
                     {/* Contact Form */}
                     <FadeIn className="w-full lg:col-span-2" direction="none" delay={0.4}>
                         <form onSubmit={formik.handleSubmit} className="space-y-12">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-14">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 md:gap-y-14">
                                 <div className="form-control group">
                                     <input
                                         type="text"
