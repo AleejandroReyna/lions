@@ -32,7 +32,6 @@ export default async function Catalog({ searchParams }: PageProps) {
     const categories = types?.split(',').filter(Boolean) || [];
 
     const result = await getProductsAction({
-        limit: 1, // Keep limit at 1 for testing as requested
         page: currentPage,
         search: search || '',
         categories: categories,
