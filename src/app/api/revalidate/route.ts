@@ -5,7 +5,7 @@ export async function GET(request: NextRequest) {
     const secret = request.nextUrl.searchParams.get('secret');
 
     // Usamos el secret de Payload para proteger la ruta
-    if (secret !== process.env['PAYLOAD-SECRET']) {
+    if (secret !== process.env.PAYLOAD_SECRET) {
         return NextResponse.json({ message: 'Invalid secret' }, { status: 401 });
     }
 

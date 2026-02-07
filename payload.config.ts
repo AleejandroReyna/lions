@@ -11,11 +11,16 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 const revalidate = async ({ doc }: any) => {
-    const url = `${process.env.SERVER_URL || 'http://localhost:3000'}/api/revalidate?path=/&secret=${process.env['PAYLOAD-SECRET']}`;
+    const url = `${process.env.SERVER_URL || 'http://localhost:3000'}/api/revalidate?path=/&secret=${process.env.PAYLOAD_SECRET}`;
     try {
-        await fetch(url);
+        const res = await fetch(url);
+        if (!res.ok) {
+            console.error(`Revalidation failed: ${res.status} ${res.statusText}`);
+        } else {
+            console.log(`Revalidation successful for path: /`);
+        }
     } catch (err) {
-        console.error("Error revalidating:", err);
+        console.error("Error connecting to revalidation API:", err);
     }
     return doc;
 };
